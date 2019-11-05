@@ -28,7 +28,7 @@ public class PrimeV2 {
 		int divNum = 2;
 
 		//int result;
-		boolean prime = true;
+
 		int currentNum;
 		int[] primes;
 
@@ -45,21 +45,27 @@ public class PrimeV2 {
 		maxNum = Math.max(num1, num2);
 
 		currentNum = minNum;
-		primes = new int[maxNum];
+		primes = new int[maxNum-minNum];
+
+		System.out.println("The prime numbers between " +minNum+ " and " +maxNum+ " are:");
+
+		if (currentNum == 2 || minNum < 2) {
+			System.out.println(2);
+		}
 
 		do {
 
 			do {
 				if(currentNum % divNum == 0) {
-					prime = false;
+
 				}
 				else{
-					prime = true;
-					for (int i = 0; i < maxNum-minNum; i++) {
-						primes[i] = currentNum;
+					if (currentNum !=1) {
+						System.out.println(currentNum);
 					}
+
 				}
-				
+
 				divNum++;
 
 			} while(divNum <= Math.sqrt(currentNum));
@@ -69,11 +75,5 @@ public class PrimeV2 {
 
 
 		} while (currentNum <= maxNum);
-
-		System.out.println("The following prime numbers between " +minNum+ " and " +maxNum+ " are:");
-		for (int i = 0; i < maxNum-minNum; i++) {
-			System.out.println(primes[i]);
-		}
-
 	}
 }
